@@ -19,8 +19,8 @@ class App : Application<AppConfig>() {
 
         println("Dropwizard API started successfully!")
     }
-}
 
-fun main(args: Array<String>) {
-    App().run(*args)
+    fun startServer() {
+        run("server", "api-gateway/src/main/resources/config.yml")
+    }
 }

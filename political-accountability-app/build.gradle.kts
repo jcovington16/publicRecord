@@ -15,13 +15,13 @@ subprojects {
     group = "com.publicrecord"
     version = "1.0-SNAPSHOT"
 
-    kotlin {
-        jvmToolchain(21) // ✅ Use this instead of `jvmTarget = 21`
+    repositories {
+        mavenCentral()
     }
 
-    java {
+    java { // ✅ Keep only this for Java 21
         toolchain {
-            languageVersion.set(JavaLanguageVersion.of(21)) // ✅ Explicitly set Java 21
+            languageVersion.set(JavaLanguageVersion.of(21))
         }
     }
 
@@ -30,6 +30,17 @@ subprojects {
         testImplementation(platform("org.junit:junit-bom:5.10.0"))
         testImplementation("org.junit.jupiter:junit-jupiter")
     }
+}
+
+dependencies {
+    implementation(project(":storage-service"))
+    implementation(project(":api-gateway"))
+
+    // Add Dropwizard dependencies to the root project
+    implementation("io.dropwizard:dropwizard-core:2.1.4")
+    implementation("io.dropwizard:dropwizard-client:2.1.4")
+    implementation("io.dropwizard:dropwizard-auth:2.1.4")
+    implementation("io.dropwizard:dropwizard-assets:2.1.4")
 }
 
 tasks.test {

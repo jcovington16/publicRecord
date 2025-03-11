@@ -1,18 +1,41 @@
 plugins {
     kotlin("jvm")
-    id("application") // Ensure the application plugin is explicitly declared
+    id("java") // ✅ Added to ensure Java dependencies work
 }
 
 dependencies {
     implementation(project(":common"))
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-core:1.6.4")
-    implementation("io.dropwizard:dropwizard-core:2.1.6")
-    implementation("org.postgresql:postgresql:42.5.1")
-    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.0")
-    implementation("org.hibernate:hibernate-core:6.2.0.Final")
-    implementation("org.hibernate:hibernate-envers:6.2.0.Final") // For auditing
-}
 
-application {
-    mainClass.set("com.publicrecord.api.MainKt")
+    // Dropwizard dependencies
+    implementation("io.dropwizard:dropwizard-core:2.1.4")
+    implementation("io.dropwizard:dropwizard-client:2.1.4")
+    implementation("io.dropwizard:dropwizard-auth:2.1.4")
+    implementation("io.dropwizard:dropwizard-assets:2.1.4")
+
+    // PostgreSQL JDBC Driver
+    implementation("org.postgresql:postgresql:42.5.1")
+
+    // Kotlin SQL ORM (Exposed)
+    implementation("org.jetbrains.exposed:exposed-core:0.41.1")
+    implementation("org.jetbrains.exposed:exposed-dao:0.41.1")
+    implementation("org.jetbrains.exposed:exposed-jdbc:0.41.1")
+
+    // Elasticsearch Java Client
+    implementation("co.elastic.clients:elasticsearch-java:8.6.2")
+    implementation("org.apache.httpcomponents.client5:httpclient5:5.2")
+
+    // MinIO Client (S3-Compatible)
+    implementation("io.minio:minio:8.5.7")
+
+    // Kafka Dependencies
+    implementation("org.apache.kafka:kafka-clients:3.3.1")
+
+    // ✅ Add Kafka Streams if Needed
+    implementation("org.apache.kafka:kafka-streams:3.3.1")
+
+    // Logging
+    implementation("ch.qos.logback:logback-classic:1.2.11")
+
+    // Testing
+    testImplementation("org.junit.jupiter:junit-jupiter:5.9.1")
 }

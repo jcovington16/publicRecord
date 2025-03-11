@@ -1,0 +1,48 @@
+# Dropwizard Configuration File
+
+server:
+  applicationConnectors:
+    - type: http
+      port: 8080  # API Gateway HTTP Port
+  adminConnectors:
+    - type: http
+      port: 8081  # Admin Port
+
+logging:
+  level: INFO
+  appenders:
+    - type: console
+      timeZone: UTC
+    - type: file
+      currentLogFilename: logs/api-gateway.log
+      archivedLogFilenamePattern: logs/api-gateway-%d.log.gz
+      archivedFileCount: 5
+      timeZone: UTC
+      threshold: INFO
+
+database:
+  driverClass: org.postgresql.Driver
+  url: jdbc:postgresql://localhost:5432/political_data  # PostgreSQL URL
+  user: postgres
+  password: postgres
+  maxConnections: 10
+
+kafka:
+  bootstrapServers: "localhost:9092"
+  topic: "political-events"
+  consumerGroupId: "api-gateway-group"
+
+elasticsearch:
+  host: "http://localhost:9200"
+  index: "news-articles"
+
+minio:
+  endpoint: "http://localhost:9000"
+  accessKey: "minioadmin"
+  secretKey: "minioadmin"
+  bucket: "political-media"
+
+cors:
+  allowedOrigins: "*"
+  allowedMethods: "OPTIONS,GET,PUT,POST,DELETE,HEAD"
+  allowedHeaders: "X-Requested-With,Content-Type,Accept,Origin"
