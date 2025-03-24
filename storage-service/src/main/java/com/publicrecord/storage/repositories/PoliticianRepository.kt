@@ -5,9 +5,9 @@ class PoliticianRepository {
     // create a connection standard connection used amongst all repos
 
     // fun getPoliticianById
-    companion object {
-        fun getPoliticianById(id: String): Politician? {
-
-        }
-    }
+//    companion object {
+//        fun getPoliticianById(id: String): Politician? {
+//
+//        }
+//    }
 }

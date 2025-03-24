@@ -8,11 +8,14 @@ dependencies {
     implementation(project(":storage-service"))
     implementation(project(":event-streaming"))
 
+    // Add khttp for HTTP client functionality
+    implementation("com.squareup.okhttp3:okhttp:4.10.0")
+
     // Dropwizard dependencies
-    implementation("io.dropwizard:dropwizard-core:2.1.4")
-    implementation("io.dropwizard:dropwizard-client:2.1.4")
-    implementation("io.dropwizard:dropwizard-auth:2.1.4")
-    implementation("io.dropwizard:dropwizard-assets:2.1.4")
+    implementation("io.dropwizard:dropwizard-core:2.1.6")
+    implementation("io.dropwizard:dropwizard-jetty:2.1.6")         // <-- This is critical
+    implementation("io.dropwizard:dropwizard-jackson:2.1.6")
+    implementation("io.dropwizard:dropwizard-configuration:2.1.6")
 
     // PostgreSQL JDBC Driver
     implementation("org.postgresql:postgresql:42.5.1")
@@ -38,6 +41,10 @@ dependencies {
     // Logging
     implementation("ch.qos.logback:logback-classic:1.2.11")
 
+    // Jackson Kotlin module for JSON parsing
+    implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.14.0")
+
     // Testing
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.1")
+    testImplementation("io.dropwizard:dropwizard-testing:2.1.6")
 }

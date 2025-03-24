@@ -1,32 +1,22 @@
 package com.publicrecord;
 
 import com.publicrecord.api.App;
-import com.publicrecord.storage.services.DatabaseService;
-import com.publicrecord.storage.services.ElasticSearchService;
-import com.publicrecord.storage.services.MinIOService;
-import com.publicrecord.storage.services.KafkaService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class Main {
+    private static final Logger logger = LoggerFactory.getLogger(Main.class);
+
     public static void main(String[] args) {
-        System.out.println("Starting Political Accountability System...");
-
-        // Define path to config.yml
-        String configPath = "api-gateway/src/main/resources/config.yml";
-
-        // Initialize all core services
-        DatabaseService databaseService = new DatabaseService();
-        ElasticSearchService elasticsearchService = new ElasticSearchService();
-        MinIOService minioService = new MinIOService();
-        KafkaService kafkaService = new KafkaService();
+        logger.info("Starting Political Accountability System...");
 
         try {
-            App app = new App();
-            app.startServer();
+            App.main(new String[]{"server", "api-gateway/src/main/resources/config.yml"});
+            logger.info("API Gateway started successfully.");
         } catch (Exception e) {
-            System.err.println("Error starting API Gateway: " + e.getMessage());
-            e.printStackTrace();
+            logger.error("Error starting API Gateway: " + e.getMessage(), e);
         }
 
-        System.out.println("All services started successfully.");
+        logger.info("All services started successfully.");
     }
 }

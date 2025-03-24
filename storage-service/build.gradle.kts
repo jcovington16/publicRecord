@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm")
-    id("java") // ✅ Added to ensure Java dependencies work
+    id("java")
 }
 
 dependencies {
@@ -23,12 +23,13 @@ dependencies {
 
     // Kafka Dependencies
     implementation("org.apache.kafka:kafka-clients:3.3.1")
-
-    // ✅ Add Kafka Streams if Needed
     implementation("org.apache.kafka:kafka-streams:3.3.1")
 
     // Logging
     implementation("ch.qos.logback:logback-classic:1.2.11")
+
+    // **Add Dropwizard lifecycle dependency**
+    implementation("io.dropwizard:dropwizard-lifecycle:2.1.6")
 
     // Testing
     testImplementation("org.junit.jupiter:junit-jupiter:5.9.1")

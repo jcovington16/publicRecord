@@ -1,0 +1,15 @@
+INFO  [2025-03-22 06:01:34,609] org.eclipse.jetty.util.log: Logging initialized @501ms to org.eclipse.jetty.util.log.Slf4jLog
+INFO  [2025-03-22 06:01:34,626] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2025-03-22 06:01:34,626] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2025-03-22 06:03:02,232] org.eclipse.jetty.util.log: Logging initialized @490ms to org.eclipse.jetty.util.log.Slf4jLog
+INFO  [2025-03-22 06:03:02,249] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2025-03-22 06:03:02,250] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2025-03-22 06:09:32,218] org.eclipse.jetty.util.log: Logging initialized @496ms to org.eclipse.jetty.util.log.Slf4jLog
+INFO  [2025-03-22 06:09:32,234] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2025-03-22 06:09:32,235] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2025-03-22 06:13:36,011] org.eclipse.jetty.util.log: Logging initialized @515ms to org.eclipse.jetty.util.log.Slf4jLog
+INFO  [2025-03-22 06:13:36,029] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2025-03-22 06:13:36,029] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /
+INFO  [2025-03-22 06:28:14,696] org.eclipse.jetty.util.log: Logging initialized @561ms to org.eclipse.jetty.util.log.Slf4jLog
+INFO  [2025-03-22 06:28:14,728] io.dropwizard.server.DefaultServerFactory: Registering jersey handler with root path prefix: /
+INFO  [2025-03-22 06:28:14,729] io.dropwizard.server.DefaultServerFactory: Registering admin handler with root path prefix: /

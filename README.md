@@ -7,23 +7,23 @@ The Political Accountability App is designed to **track and store data** about p
 This application is built using a **microservices approach**, leveraging multiple technologies to store and process data efficiently.
 
 ### **Backend Stack**
-- **Java/Kotlin (No Spring Boot)** – Core backend services
+- **Java/Kotlin (No Spring Boot)** –  Core backend services using Dropwizard for the API Gateway
 - **Gradle (Kotlin DSL)** – Build tool
 - **PostgreSQL** – Structured data storage (politicians, voting records, bills)
-- **Elasticsearch** – Full-text search (news articles, social media, speech transcripts)
-- **MinIO (S3-Compatible)** – Video/Audio storage
+- **Elasticsearch** – Full-text search for news articles and social media content.
+- **MinIO (S3-Compatible)** – Media storage for videos, audio, and images.
 - **Kafka** – Event-driven architecture for data ingestion and processing
 - **Redis** – Caching frequently accessed data
 
 ### **Microservices Structure**
 | Module | Purpose |
 |--------|---------|
-| `api-gateway` | Handles all API requests |
+| `api-gateway` | Exposes REST endpoints using Dropwizard; routes client requests. |
 | `ingestion-service` | Scrapes data from news sources, government APIs, and social media |
 | `processing-service` | Analyzes data, applies NLP for fact-checking, and enriches records |
-| `storage-service` | Stores data in PostgreSQL and Elasticsearch |
-| `event-streaming` | Handles Kafka event processing |
-| `common` | Shared utilities and models |
+| `storage-service` | Handles data storage (PostgreSQL/managed via Supabase), search (Elasticsearch), and media storage (MinIO). Also manages backend services via Dropwizard Managed objects. |
+| `event-streaming` | Processes Kafka events for real-time updates. |
+| `common` | Contains shared models, utilities, and configuration classes. |
 
 ## 🔹 Database Schema
 ### **Politicians Table**
